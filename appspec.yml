@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+  - source: app
+    destination: /var/www/html/
+  - source: scripts/webapi.service
+    destination: /etc/sysyemd/system
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      timeout: 300
+      runas: root
+    - location: scripts/stop_app.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/start_app.sh
+      timeout: 300
+      runas: root
