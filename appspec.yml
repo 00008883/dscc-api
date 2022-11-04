@@ -4,7 +4,7 @@ files:
   - source: app
     destination: /var/www
   - source: scripts/webapi.service
-    destination: /etc/sysyemd/system
+    destination: /etc/systemd/system
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
